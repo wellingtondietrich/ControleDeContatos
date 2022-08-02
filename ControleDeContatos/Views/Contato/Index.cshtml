@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Lista de Contatos";
+}
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Criar">Adicionar</a>
+    </div>
+    <br />
+    <h1 class="display-4">Lista de contatos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Celular</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto@gmail.com</td>
+                <td>11 92985884</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
+                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton@hotmail.com</td>
+                <td>11 92985884</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
+                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>larry@hotmail.com</td>
+                <td>11 92985884</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Ações
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
+                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
