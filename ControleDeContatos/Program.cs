@@ -1,8 +1,14 @@
+using ControleDeContatos.Data;
+using ControleDeContatos.Repositorio;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
+builder.Services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

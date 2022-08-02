@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ContatoModel>
+@{
     ViewData["Title"] = "Lista de Contatos";
 }
 <div class="text-center">
@@ -18,63 +19,32 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto@gmail.com</td>
-                <td>11 92985884</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ações
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
-                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton@hotmail.com</td>
-                <td>11 92985884</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ações
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
-                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>larry@hotmail.com</td>
-                <td>11 92985884</td>
-                <td>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ações
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a role="button" class="dropdown-item" asp-controller="Contato" asp-action="Editar">Editar</a></li>
-                                <li><a role="button" class="dropdown-item text-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Ações
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <li><a role="button" class="dropdown-item" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a></li>
+                                        <li><a role="button" class="dropdown-item text-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
         </tbody>
     </table>
 </div>
