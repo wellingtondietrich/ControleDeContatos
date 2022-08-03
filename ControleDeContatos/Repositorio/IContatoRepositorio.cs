@@ -7,5 +7,7 @@ namespace ControleDeContatos.Repositorio
         ContatoModel Adicionar(ContatoModel contato);
         List<ContatoModel> BuscarTodos();
         ContatoModel PesquisarporId(int id);
+        ContatoModel Atualizar(ContatoModel contato);
+        bool Apagar(int id);
     }
 }
